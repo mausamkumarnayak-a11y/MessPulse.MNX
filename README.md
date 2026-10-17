@@ -115,7 +115,7 @@ Setup instructions will be added with the first working milestone (backend "hell
 
 ## Documentation
 
-The full project document (problem, audience, existing solutions, gap analysis, features, architecture, UX, testing, business model canvas, roadmap, risks) is in [`docs/MessPulse-Project-Documentation.pdf`](docs/MessPulse-Project-Documentation.pdf).
+The full project document (problem, audience, existing solutions, gap analysis, features, architecture, UX, testing, business model canvas, roadmap, risks) is in messpulse documentation pdf:- (https://drive.google.com/file/d/1es6_n5Mzo7_fbo_6N5lmdHWkL2iiC2KH/view?usp=drive_link).
 
 ## Contributing
 
