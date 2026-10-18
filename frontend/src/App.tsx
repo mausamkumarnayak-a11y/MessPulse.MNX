@@ -27,12 +27,17 @@ export const App: React.FC = () => {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <div className="spatial-canvas">
+          {/* Ambient Spatial Lighting Orbs */}
+          <div className="spatial-orb spatial-orb-1" />
+          <div className="spatial-orb spatial-orb-2" />
+          <div className="spatial-orb spatial-orb-3" />
+
           {/* Top Glass Header */}
           <Navbar onStartTour={() => setTourOpen(true)} />
 
           {/* Main App Content Body */}
-          <main style={{ flex: 1 }}>
+          <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<LandingPage onStartTour={() => setTourOpen(true)} />} />

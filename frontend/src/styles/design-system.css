@@ -1,59 +1,72 @@
 /* =====================================================================
-   MESSPULSE DESIGN SYSTEM
-   - Theme: Olive Forest & Warm Amber (Calm, soothing campus dining vibe)
-   - Skeuomorphism: Interactive functions (Buttons, Toggles, Sliders)
-   - Neumorphism: Background surfaces (Cards, Panels, Inset input wells)
-   - Glassmorphism: Layers & Overlays (Modals, Headers, Floating toolbars)
+   MESSPULSE SPATIAL DESIGN SYSTEM (OLIVE GREEN & WARM AMBER)
+   - Spatial UI: VisionOS-inspired multi-plane depth, ambient lighting orbs,
+     floating frosted glass capsules, specular edge reflections & z-elevation
+   - Theme: Calming & Atmospheric Olive Green with Warm Amber Solar Accents
+   - Skeuomorphic Controls: Tactile physical buttons, 3D switches, metallic sliders
+   - Neumorphic & Spatial Wells: Concave debossed wells, illuminated contours
+   - Glassmorphism: Multi-layered refractive frosted glass with backdrop blur
    ===================================================================== */
 
 :root {
-  /* Palette: Olive Forest & Warm Amber */
-  --olive-900: #14241D;
-  --olive-800: #1E352B;
-  --olive-700: #2D4A3E;
-  --olive-600: #3E6353;
-  --olive-500: #527E6B;
-  --olive-400: #73A18E;
-  --olive-200: #C2D6CC;
-  --olive-100: #E4ECE7;
+  /* Rich Olive Color Palette */
+  --olive-950: #0E1A13;
+  --olive-900: #15251C;
+  --olive-850: #1C3326;
+  --olive-800: #244132;
+  --olive-700: #2E523F;
+  --olive-600: #3D6A52;
+  --olive-500: #51876B;
+  --olive-400: #6EA78A;
+  --olive-300: #94C6AD;
+  --olive-200: #C2E2D1;
+  --olive-100: #E3F1E9;
+  --olive-50:  #F2F8F4;
 
-  --amber-600: #B56E1A;
+  /* Solar Warm Amber Accents */
+  --amber-700: #9A5A0F;
+  --amber-600: #C4761C;
   --amber-500: #E29538;
   --amber-400: #F5AB4D;
-  --amber-300: #FCD698;
-  --amber-100: #FEF3DE;
+  --amber-300: #FCD290;
+  --amber-200: #FDE8C4;
+  --amber-100: #FEF4E2;
+  --amber-glow: rgba(226, 149, 56, 0.32);
 
-  /* Neumorphic Canvas Bases */
-  --canvas-bg: #EEF2EC;
-  --canvas-surface: #E8EDE5;
-  --card-bg: #E8EDE5;
-  --card-highlight: #FFFFFF;
-  --card-shadow: rgba(30, 53, 43, 0.14);
-  --card-shadow-dark: rgba(20, 36, 29, 0.22);
+  /* Spatial Canvas & Frosted Glass Tones */
+  --spatial-bg: #E7EEE5;
+  --spatial-surface: rgba(245, 249, 244, 0.75);
+  --spatial-card-bg: rgba(246, 250, 245, 0.82);
+  --spatial-glass-border: rgba(255, 255, 255, 0.88);
+  --spatial-rim-highlight: rgba(255, 255, 255, 0.95);
+  --spatial-shadow-ambient: rgba(18, 35, 25, 0.12);
+  --spatial-shadow-deep: rgba(12, 26, 18, 0.22);
 
-  /* Typography Colors */
-  --text-primary: #15221C;
-  --text-secondary: #41524A;
-  --text-muted: #6B7E75;
+  /* High Contrast Spatial Typography */
+  --text-primary: #112017;
+  --text-secondary: #364B3F;
+  --text-muted: #5E7468;
   --text-inverse: #FFFFFF;
 
-  /* Status Colors */
-  --veg-green: #2E7D32;
-  --nonveg-red: #C62828;
+  /* Dietary & Semantic Indicators */
+  --veg-green: #247528;
+  --veg-bg: rgba(36, 117, 40, 0.12);
+  --nonveg-red: #C52222;
+  --nonveg-bg: rgba(197, 34, 34, 0.12);
   --success: #1E7E34;
   --warning: #D97706;
   --danger: #DC2626;
 
-  /* Typography Families */
+  /* Fonts */
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Standard Radii */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
-  --radius-full: 9999px;
+  /* Spatial Curved Radii */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-capsule: 9999px;
 }
 
 /* Base Styles */
@@ -66,81 +79,157 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--canvas-bg);
+  background-color: var(--spatial-bg);
   color: var(--text-primary);
   min-height: 100vh;
-  line-height: 1.5;
+  line-height: 1.55;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Spatial Ambient Lighting Environment */
+.spatial-canvas {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: 
+    radial-gradient(circle at 12% 14%, rgba(110, 167, 138, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 88% 12%, rgba(245, 171, 77, 0.24) 0%, transparent 48%),
+    radial-gradient(circle at 50% 80%, rgba(46, 82, 63, 0.2) 0%, transparent 55%),
+    radial-gradient(circle at 82% 65%, rgba(148, 198, 173, 0.28) 0%, transparent 50%),
+    linear-gradient(180deg, #EBF1EA 0%, #E3ECE1 50%, #DCE6D9 100%);
+  background-attachment: fixed;
+}
+
+/* Ambient Floating Glow Halos */
+.spatial-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  z-index: 0;
+  opacity: 0.65;
+  animation: orbDrift 22s infinite alternate ease-in-out;
+}
+
+.spatial-orb-1 {
+  width: 480px;
+  height: 480px;
+  top: -100px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(148, 198, 173, 0.45) 0%, rgba(94, 140, 115, 0.05) 70%);
+}
+
+.spatial-orb-2 {
+  width: 520px;
+  height: 520px;
+  top: 15%;
+  right: -120px;
+  background: radial-gradient(circle, rgba(245, 171, 77, 0.32) 0%, rgba(226, 149, 56, 0.05) 70%);
+  animation-duration: 26s;
+}
+
+.spatial-orb-3 {
+  width: 600px;
+  height: 600px;
+  bottom: -150px;
+  left: 20%;
+  background: radial-gradient(circle, rgba(61, 106, 82, 0.28) 0%, rgba(36, 65, 50, 0.04) 75%);
+  animation-duration: 30s;
+}
+
+@keyframes orbDrift {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(35px) scale(1.08); }
+  100% { transform: translateY(-25px) scale(0.95); }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
-  color: var(--olive-900);
-  letter-spacing: -0.02em;
+  color: var(--olive-950);
+  letter-spacing: -0.025em;
 }
 
 /* =====================================================================
-   1. NEUMORPHIC BACKGROUND CONTAINERS & INSET WELLS
+   1. SPATIAL CARDS & REFRACTIVE SURFACES
    ===================================================================== */
 
-/* Soft Convex Neumorphic Card */
-.neumo-card {
-  background: var(--card-bg);
+/* Floating Multi-plane Spatial Glass Card */
+.neumo-card,
+.spatial-card {
+  position: relative;
+  background: var(--spatial-card-bg);
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
   border-radius: var(--radius-lg);
+  border: 1px solid var(--spatial-glass-border);
+  box-shadow: 
+    0 16px 38px -6px var(--spatial-shadow-ambient),
+    0 4px 12px rgba(18, 35, 25, 0.06),
+    inset 0 1px 1.5px var(--spatial-rim-highlight),
+    inset 0 -1px 1px rgba(36, 65, 50, 0.06);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, border-color 0.2s ease;
+  z-index: 1;
+}
+
+.neumo-card-interactive:hover,
+.spatial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 24px 52px -8px rgba(18, 35, 25, 0.2),
+    0 6px 16px rgba(18, 35, 25, 0.08),
+    0 0 20px rgba(110, 167, 138, 0.15),
+    inset 0 1px 2px #FFFFFF;
+}
+
+/* Debossed Spatial Concave Well (Inputs, Search, Metric Display) */
+.neumo-inset,
+.spatial-inset {
+  background: rgba(225, 234, 222, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 
-    -6px -6px 14px var(--card-highlight),
-    6px 6px 16px var(--card-shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.neumo-card-interactive:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    -8px -8px 18px var(--card-highlight),
-    8px 8px 20px var(--card-shadow);
-}
-
-/* Debossed / Concave Inset Form Well (Inputs, Search, Metric Boxes) */
-.neumo-inset {
-  background: #E4EAE1;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(30, 53, 43, 0.05);
-  box-shadow: 
-    inset 3px 3px 6px var(--card-shadow),
-    inset -3px -3px 6px var(--card-highlight);
+    inset 2.5px 2.5px 6px rgba(18, 35, 25, 0.14),
+    inset -2.5px -2.5px 6px rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease;
 }
 
 .neumo-input {
   width: 100%;
-  padding: 12px 16px;
+  padding: 13px 18px;
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--text-primary);
-  background: #E4EAE1;
-  border: 1px solid rgba(30, 53, 43, 0.08);
+  background: rgba(225, 234, 222, 0.7);
+  border: 1px solid rgba(46, 82, 63, 0.12);
   border-radius: var(--radius-md);
   box-shadow: 
-    inset 2px 2px 5px var(--card-shadow),
-    inset -2px -2px 5px var(--card-highlight);
+    inset 2px 2px 5px rgba(18, 35, 25, 0.14),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.8);
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .neumo-input:focus {
+  background: rgba(235, 243, 232, 0.9);
   border-color: var(--olive-600);
   box-shadow: 
-    inset 3px 3px 6px var(--card-shadow),
-    inset -3px -3px 6px var(--card-highlight),
-    0 0 0 3px rgba(62, 99, 83, 0.2);
+    inset 2px 2px 5px rgba(18, 35, 25, 0.12),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.9),
+    0 0 0 3px rgba(61, 106, 82, 0.25),
+    0 0 12px rgba(110, 167, 138, 0.2);
 }
 
 /* =====================================================================
-   2. SKEUOMORPHIC INTERACTIVE FUNCTION CONTROLS (Buttons, Toggles, Sliders)
+   2. SPATIAL SKEUOMORPHIC FUNCTION CONTROLS (Buttons, Sliders, Toggles)
    ===================================================================== */
 
-/* Physical 3D Tactile Button (Olive Forest) */
+/* Physical 3D Tactile Olive Button with Specular Rim & Ambient Glow */
 .skeuo-btn {
   position: relative;
   display: inline-flex;
@@ -151,108 +240,111 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   font-weight: 700;
   color: #FFFFFF;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: var(--radius-md);
-  border: 1px solid #1C3529;
-  background: linear-gradient(180deg, #3E6353 0%, #254034 60%, #1A2F26 100%);
+  border: 1px solid rgba(14, 26, 19, 0.85);
+  background: linear-gradient(180deg, #3D6A52 0%, #294A38 55%, #1C3628 100%);
   box-shadow: 
-    inset 0 1px 1px rgba(255, 255, 255, 0.35),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.3),
-    0 4px 6px rgba(18, 32, 25, 0.25),
-    0 1px 2px rgba(18, 32, 25, 0.15);
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.35),
+    0 6px 14px rgba(14, 26, 19, 0.28),
+    0 1px 3px rgba(14, 26, 19, 0.2),
+    0 0 16px rgba(61, 106, 82, 0.2);
   cursor: pointer;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.14s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
 }
 
 .skeuo-btn:hover {
-  background: linear-gradient(180deg, #4A7361 0%, #2D4C3E 60%, #1F362C 100%);
+  background: linear-gradient(180deg, #4A7D62 0%, #325642 55%, #224030 100%);
   box-shadow: 
-    inset 0 1px 1px rgba(255, 255, 255, 0.45),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.35),
-    0 6px 10px rgba(18, 32, 25, 0.3);
+    inset 0 1px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.4),
+    0 8px 20px rgba(14, 26, 19, 0.35),
+    0 0 20px rgba(78, 134, 104, 0.35);
+  transform: translateY(-1px);
 }
 
 .skeuo-btn:active {
   transform: translateY(2px);
-  background: linear-gradient(180deg, #1A2F26 0%, #254034 60%, #2E4E3F 100%);
+  background: linear-gradient(180deg, #1C3628 0%, #294A38 60%, #345B45 100%);
   box-shadow: 
-    inset 0 3px 5px rgba(0, 0, 0, 0.5),
-    0 1px 2px rgba(0, 0, 0, 0.15);
+    inset 0 3px 6px rgba(0, 0, 0, 0.6),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .skeuo-btn:disabled {
-  opacity: 0.55;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-/* Warm Amber Skeuomorphic Button (Accent / Primary Action) */
+/* Warm Amber Skeuomorphic Solar Button (Primary Action) */
 .skeuo-btn-amber {
   color: #FFFFFF;
-  border: 1px solid #9C580E;
-  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 50%, #C47820 100%);
+  border: 1px solid rgba(154, 90, 15, 0.9);
+  background: linear-gradient(180deg, #F8B052 0%, #E29538 50%, #C4761C 100%);
   box-shadow: 
-    inset 0 1px 1px rgba(255, 255, 255, 0.5),
-    inset 0 -1px 2px rgba(0, 0, 0, 0.25),
-    0 4px 8px rgba(181, 110, 26, 0.35),
-    0 1px 3px rgba(181, 110, 26, 0.2);
-  text-shadow: 0 1px 2px rgba(110, 58, 6, 0.4);
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.65),
+    inset 0 -1.5px 2px rgba(90, 45, 5, 0.3),
+    0 6px 16px rgba(196, 118, 28, 0.38),
+    0 1px 3px rgba(196, 118, 28, 0.2),
+    0 0 20px var(--amber-glow);
+  text-shadow: 0 1px 2px rgba(90, 45, 5, 0.5);
 }
 
 .skeuo-btn-amber:hover {
-  background: linear-gradient(180deg, #F9B866 0%, #EA9F45 50%, #CD8128 100%);
+  background: linear-gradient(180deg, #FBC170 0%, #EB9F42 50%, #CF7E22 100%);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px rgba(90, 45, 5, 0.35),
+    0 10px 24px rgba(196, 118, 28, 0.45),
+    0 0 24px rgba(245, 171, 77, 0.4);
+  transform: translateY(-1px);
 }
 
 .skeuo-btn-amber:active {
   transform: translateY(2px);
-  background: linear-gradient(180deg, #B56E1A 0%, #D4872A 60%, #E29538 100%);
+  background: linear-gradient(180deg, #B26514 0%, #CD7A20 60%, #E29538 100%);
   box-shadow: 
-    inset 0 3px 5px rgba(90, 48, 6, 0.5),
-    0 1px 2px rgba(0, 0, 0, 0.15);
+    inset 0 3px 6px rgba(80, 40, 5, 0.6),
+    0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Light / Secondary Skeuomorphic Button */
+/* Light / Secondary Spatial Frosted Button */
 .skeuo-btn-secondary {
   color: var(--text-primary);
-  border: 1px solid rgba(45, 74, 62, 0.15);
-  background: linear-gradient(180deg, #FFFFFF 0%, #EEF2EC 60%, #DFE5DC 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(180deg, #FFFFFF 0%, #EBF1E9 60%, #DDE6DB 100%);
   box-shadow: 
     inset 0 1px 1px #FFFFFF,
-    inset 0 -1px 2px rgba(0, 0, 0, 0.05),
-    0 3px 6px var(--card-shadow);
+    inset 0 -1px 2px rgba(0, 0, 0, 0.06),
+    0 4px 10px rgba(18, 35, 25, 0.1);
   text-shadow: none;
 }
 
 .skeuo-btn-secondary:hover {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F4F7F2 60%, #E5ECE3 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F3F7F2 60%, #E4EDE2 100%);
+  box-shadow: 
+    inset 0 1px 1px #FFFFFF,
+    0 6px 14px rgba(18, 35, 25, 0.15);
+  transform: translateY(-1px);
 }
 
 .skeuo-btn-secondary:active {
   transform: translateY(2px);
-  background: linear-gradient(180deg, #DFE5DC 0%, #E8EDE4 60%, #FFFFFF 100%);
-  box-shadow: inset 0 2px 4px rgba(45, 74, 62, 0.2);
+  background: linear-gradient(180deg, #DDE6DB 0%, #E8F0E6 60%, #FFFFFF 100%);
+  box-shadow: inset 0 2px 4px rgba(18, 35, 25, 0.18);
 }
 
-/* Danger / Destructive Skeuomorphic Button */
-.skeuo-btn-danger {
-  color: #FFFFFF;
-  border: 1px solid #8B1A1A;
-  background: linear-gradient(180deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
-  box-shadow: 
-    inset 0 1px 1px rgba(255, 255, 255, 0.4),
-    0 4px 8px rgba(185, 28, 28, 0.3);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-/* Tactile Physical Rocker Toggle */
+/* 3D Physical Rocker Toggle */
 .skeuo-toggle {
   position: relative;
   display: inline-block;
-  width: 52px;
-  height: 28px;
+  width: 56px;
+  height: 30px;
 }
 
 .skeuo-toggle input {
@@ -265,126 +357,89 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   cursor: pointer;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #D2D9CE;
-  border-radius: var(--radius-full);
+  background-color: #CBD6C8;
+  border-radius: var(--radius-capsule);
   box-shadow: 
-    inset 2px 2px 5px rgba(20, 36, 29, 0.25),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+    inset 2.5px 2.5px 5px rgba(18, 35, 25, 0.25),
+    inset -2.5px -2.5px 5px rgba(255, 255, 255, 0.85);
   transition: all 0.3s ease;
 }
 
 .skeuo-toggle-slider:before {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 22px;
+  height: 24px;
+  width: 24px;
   left: 3px;
   bottom: 3px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #E0E5DC 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #DEE5DA 100%);
   border-radius: 50%;
-  border: 1px solid #BAC4B5;
+  border: 1px solid #B8C4B5;
   box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.25),
-    inset 0 1px 1px #FFFFFF;
+    0 2px 5px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1.5px #FFFFFF;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .skeuo-toggle input:checked + .skeuo-toggle-slider {
-  background: linear-gradient(180deg, #2D4A3E 0%, #1E352B 100%);
-  box-shadow: inset 2px 2px 5px rgba(10, 20, 15, 0.5);
+  background: linear-gradient(180deg, #2E523F 0%, #1C3628 100%);
+  box-shadow: inset 2.5px 2.5px 5px rgba(10, 22, 16, 0.6);
 }
 
 .skeuo-toggle input:checked + .skeuo-toggle-slider:before {
-  transform: translateX(24px);
-  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 100%);
-  border-color: #B56E1A;
+  transform: translateX(26px);
+  background: linear-gradient(180deg, #F8B052 0%, #E29538 100%);
+  border-color: #B26514;
   box-shadow: 
-    0 2px 5px rgba(181, 110, 26, 0.4),
-    inset 0 1px 1px #FFE2B7;
-}
-
-/* Skeuomorphic Range Slider with Metallic Grip */
-.skeuo-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 10px;
-  border-radius: 5px;
-  background: #D2D9CE;
-  box-shadow: 
-    inset 2px 2px 4px rgba(20, 36, 29, 0.2),
-    inset -2px -2px 4px #FFFFFF;
-  outline: none;
-}
-
-.skeuo-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #FFFFFF 0%, #DFE5DC 60%, #BAC4B5 100%);
-  border: 1px solid #8FA295;
-  box-shadow: 
-    0 3px 6px rgba(0, 0, 0, 0.25),
-    inset 0 1px 1px #FFFFFF;
-  cursor: pointer;
-  transition: transform 0.1s ease;
-}
-
-.skeuo-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.1);
-}
-
-.skeuo-slider::-webkit-slider-thumb:active {
-  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 100%);
-  border-color: #B56E1A;
+    0 3px 8px rgba(226, 149, 56, 0.5),
+    inset 0 1px 1.5px #FFE4BD;
 }
 
 /* =====================================================================
-   3. GLASSMORPHIC LAYERS, OVERLAYS & TOOLBARS
+   3. SPATIAL VISIONOS GLASS OVERLAYS (Navigation, Header, Modals)
    ===================================================================== */
 
-/* Glass Top Header */
+/* Floating Frosted Glass Header */
 .glass-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(238, 242, 236, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 4px 12px rgba(30, 53, 43, 0.05);
+  background: rgba(235, 242, 234, 0.76);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 24px rgba(18, 35, 25, 0.05);
 }
 
-/* Floating Glass Bottom Navigation (Mobile First) */
+/* VisionOS-Inspired Floating Bottom Capsule Bar */
 .glass-bottom-nav {
   position: fixed;
-  bottom: 16px;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 32px);
-  max-width: 480px;
+  max-width: 520px;
   z-index: 90;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: var(--radius-xl);
+  background: rgba(246, 251, 245, 0.82);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-capsule);
   box-shadow: 
-    0 12px 32px rgba(20, 36, 29, 0.15),
-    0 2px 6px rgba(255, 255, 255, 0.6);
-  padding: 8px 12px;
+    0 20px 48px -6px rgba(14, 28, 20, 0.22),
+    0 4px 12px rgba(14, 28, 20, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  padding: 8px 14px;
 }
 
-/* Glass Modal Overlay */
+/* Spatial Glass Modal Overlay */
 .glass-modal-backdrop {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(20, 36, 29, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(14, 28, 20, 0.6);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -394,117 +449,135 @@ h1, h2, h3, h4, h5, h6 {
 .glass-modal-card {
   width: 100%;
   max-width: 520px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(250, 253, 249, 0.92);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
   border-radius: var(--radius-xl);
   box-shadow: 
-    0 24px 48px rgba(10, 24, 18, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.6);
+    0 32px 64px -12px rgba(10, 24, 16, 0.35),
+    0 8px 24px rgba(10, 24, 16, 0.15),
+    0 0 30px rgba(110, 167, 138, 0.2),
+    inset 0 1px 2px #FFFFFF;
   overflow: hidden;
-  animation: modalPop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: spatialModalPop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes modalPop {
-  0% { transform: scale(0.92); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+@keyframes spatialModalPop {
+  0% { transform: scale(0.9) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
 /* =====================================================================
-   4. CHIPS, BADGES, AND RATING CONTROLS
+   4. SPATIAL CHIPS, BADGES, AND RATING CONTROLS
    ===================================================================== */
 
+/* Spatial Glowing Dietary Badges */
 .badge-veg {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 2px 8px;
-  background: #E8F5E9;
+  padding: 3px 10px;
+  background: var(--veg-bg);
   color: var(--veg-green);
-  border: 1px solid #A5D6A7;
-  border-radius: var(--radius-full);
+  border: 1px solid rgba(36, 117, 40, 0.3);
+  border-radius: var(--radius-capsule);
   font-size: 0.75rem;
   font-weight: 700;
+  box-shadow: 0 2px 6px rgba(36, 117, 40, 0.12);
 }
 
 .badge-nonveg {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 2px 8px;
-  background: #FFEBEE;
+  padding: 3px 10px;
+  background: var(--nonveg-bg);
   color: var(--nonveg-red);
-  border: 1px solid #FFCDD2;
-  border-radius: var(--radius-full);
+  border: 1px solid rgba(197, 34, 34, 0.3);
+  border-radius: var(--radius-capsule);
   font-size: 0.75rem;
   font-weight: 700;
+  box-shadow: 0 2px 6px rgba(197, 34, 34, 0.12);
 }
 
+/* Spatial Tactile Star Buttons */
 .rating-star-btn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 6px;
-  font-size: 1.8rem;
-  color: #D2D9CE;
-  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease;
+  font-size: 1.9rem;
+  color: #C8D4C5;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease, filter 0.15s ease;
 }
 
 .rating-star-btn:hover,
 .rating-star-btn.active {
   color: var(--amber-500);
-  transform: scale(1.22);
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 10px rgba(245, 171, 77, 0.6));
 }
 
+/* Spatial Tactile Reason Chips */
 .reason-tag-chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
-  border-radius: var(--radius-full);
+  padding: 9px 16px;
+  border-radius: var(--radius-capsule);
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  background: #E4EAE1;
+  background: rgba(230, 238, 227, 0.75);
   color: var(--text-secondary);
-  border: 1px solid rgba(45, 74, 62, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 
-    -2px -2px 5px #FFFFFF,
-    2px 2px 5px var(--card-shadow);
-  transition: all 0.15s ease;
+    -2px -2px 6px #FFFFFF,
+    2px 2px 6px rgba(18, 35, 25, 0.1);
+  transition: all 0.16s ease;
   user-select: none;
 }
 
-.reason-tag-chip.selected {
-  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 100%);
-  color: #FFFFFF;
-  border-color: #B56E1A;
-  box-shadow: 
-    inset 0 1px 2px rgba(255, 255, 255, 0.5),
-    0 3px 6px rgba(181, 110, 26, 0.3);
+.reason-tag-chip:hover {
   transform: translateY(-1px);
+  background: rgba(238, 245, 235, 0.9);
+}
+
+.reason-tag-chip.selected {
+  background: linear-gradient(180deg, #F8B052 0%, #E29538 100%);
+  color: #FFFFFF;
+  border-color: #B26514;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.6),
+    0 4px 10px rgba(226, 149, 56, 0.35),
+    0 0 14px rgba(245, 171, 77, 0.3);
+  transform: translateY(-2px);
 }
 
 /* =====================================================================
-   5. TOUR OVERLAY STYLES
+   5. SPATIAL TOUR OVERLAY
    ===================================================================== */
 .tour-spotlight-overlay {
   position: fixed;
   inset: 0;
   z-index: 500;
-  background: rgba(15, 28, 22, 0.75);
-  backdrop-filter: blur(4px);
+  background: rgba(10, 22, 16, 0.7);
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
 }
 
 .tour-card {
   position: fixed;
   z-index: 510;
-  max-width: 380px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 2px solid var(--amber-500);
+  max-width: 420px;
+  background: rgba(250, 253, 249, 0.95);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 2px solid var(--amber-400);
   border-radius: var(--radius-xl);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  padding: 20px;
+  box-shadow: 
+    0 28px 60px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(245, 171, 77, 0.35);
+  padding: 24px;
 }
