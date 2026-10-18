@@ -1,0 +1,510 @@
+/* =====================================================================
+   MESSPULSE DESIGN SYSTEM
+   - Theme: Olive Forest & Warm Amber (Calm, soothing campus dining vibe)
+   - Skeuomorphism: Interactive functions (Buttons, Toggles, Sliders)
+   - Neumorphism: Background surfaces (Cards, Panels, Inset input wells)
+   - Glassmorphism: Layers & Overlays (Modals, Headers, Floating toolbars)
+   ===================================================================== */
+
+:root {
+  /* Palette: Olive Forest & Warm Amber */
+  --olive-900: #14241D;
+  --olive-800: #1E352B;
+  --olive-700: #2D4A3E;
+  --olive-600: #3E6353;
+  --olive-500: #527E6B;
+  --olive-400: #73A18E;
+  --olive-200: #C2D6CC;
+  --olive-100: #E4ECE7;
+
+  --amber-600: #B56E1A;
+  --amber-500: #E29538;
+  --amber-400: #F5AB4D;
+  --amber-300: #FCD698;
+  --amber-100: #FEF3DE;
+
+  /* Neumorphic Canvas Bases */
+  --canvas-bg: #EEF2EC;
+  --canvas-surface: #E8EDE5;
+  --card-bg: #E8EDE5;
+  --card-highlight: #FFFFFF;
+  --card-shadow: rgba(30, 53, 43, 0.14);
+  --card-shadow-dark: rgba(20, 36, 29, 0.22);
+
+  /* Typography Colors */
+  --text-primary: #15221C;
+  --text-secondary: #41524A;
+  --text-muted: #6B7E75;
+  --text-inverse: #FFFFFF;
+
+  /* Status Colors */
+  --veg-green: #2E7D32;
+  --nonveg-red: #C62828;
+  --success: #1E7E34;
+  --warning: #D97706;
+  --danger: #DC2626;
+
+  /* Typography Families */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Standard Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--canvas-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--olive-900);
+  letter-spacing: -0.02em;
+}
+
+/* =====================================================================
+   1. NEUMORPHIC BACKGROUND CONTAINERS & INSET WELLS
+   ===================================================================== */
+
+/* Soft Convex Neumorphic Card */
+.neumo-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    -6px -6px 14px var(--card-highlight),
+    6px 6px 16px var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neumo-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    -8px -8px 18px var(--card-highlight),
+    8px 8px 20px var(--card-shadow);
+}
+
+/* Debossed / Concave Inset Form Well (Inputs, Search, Metric Boxes) */
+.neumo-inset {
+  background: #E4EAE1;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(30, 53, 43, 0.05);
+  box-shadow: 
+    inset 3px 3px 6px var(--card-shadow),
+    inset -3px -3px 6px var(--card-highlight);
+}
+
+.neumo-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: #E4EAE1;
+  border: 1px solid rgba(30, 53, 43, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: 
+    inset 2px 2px 5px var(--card-shadow),
+    inset -2px -2px 5px var(--card-highlight);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neumo-input:focus {
+  border-color: var(--olive-600);
+  box-shadow: 
+    inset 3px 3px 6px var(--card-shadow),
+    inset -3px -3px 6px var(--card-highlight),
+    0 0 0 3px rgba(62, 99, 83, 0.2);
+}
+
+/* =====================================================================
+   2. SKEUOMORPHIC INTERACTIVE FUNCTION CONTROLS (Buttons, Toggles, Sliders)
+   ===================================================================== */
+
+/* Physical 3D Tactile Button (Olive Forest) */
+.skeuo-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  padding: 12px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid #1C3529;
+  background: linear-gradient(180deg, #3E6353 0%, #254034 60%, #1A2F26 100%);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3),
+    0 4px 6px rgba(18, 32, 25, 0.25),
+    0 1px 2px rgba(18, 32, 25, 0.15);
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.skeuo-btn:hover {
+  background: linear-gradient(180deg, #4A7361 0%, #2D4C3E 60%, #1F362C 100%);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.35),
+    0 6px 10px rgba(18, 32, 25, 0.3);
+}
+
+.skeuo-btn:active {
+  transform: translateY(2px);
+  background: linear-gradient(180deg, #1A2F26 0%, #254034 60%, #2E4E3F 100%);
+  box-shadow: 
+    inset 0 3px 5px rgba(0, 0, 0, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.skeuo-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Warm Amber Skeuomorphic Button (Accent / Primary Action) */
+.skeuo-btn-amber {
+  color: #FFFFFF;
+  border: 1px solid #9C580E;
+  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 50%, #C47820 100%);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.25),
+    0 4px 8px rgba(181, 110, 26, 0.35),
+    0 1px 3px rgba(181, 110, 26, 0.2);
+  text-shadow: 0 1px 2px rgba(110, 58, 6, 0.4);
+}
+
+.skeuo-btn-amber:hover {
+  background: linear-gradient(180deg, #F9B866 0%, #EA9F45 50%, #CD8128 100%);
+}
+
+.skeuo-btn-amber:active {
+  transform: translateY(2px);
+  background: linear-gradient(180deg, #B56E1A 0%, #D4872A 60%, #E29538 100%);
+  box-shadow: 
+    inset 0 3px 5px rgba(90, 48, 6, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Light / Secondary Skeuomorphic Button */
+.skeuo-btn-secondary {
+  color: var(--text-primary);
+  border: 1px solid rgba(45, 74, 62, 0.15);
+  background: linear-gradient(180deg, #FFFFFF 0%, #EEF2EC 60%, #DFE5DC 100%);
+  box-shadow: 
+    inset 0 1px 1px #FFFFFF,
+    inset 0 -1px 2px rgba(0, 0, 0, 0.05),
+    0 3px 6px var(--card-shadow);
+  text-shadow: none;
+}
+
+.skeuo-btn-secondary:hover {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F7F2 60%, #E5ECE3 100%);
+}
+
+.skeuo-btn-secondary:active {
+  transform: translateY(2px);
+  background: linear-gradient(180deg, #DFE5DC 0%, #E8EDE4 60%, #FFFFFF 100%);
+  box-shadow: inset 0 2px 4px rgba(45, 74, 62, 0.2);
+}
+
+/* Danger / Destructive Skeuomorphic Button */
+.skeuo-btn-danger {
+  color: #FFFFFF;
+  border: 1px solid #8B1A1A;
+  background: linear-gradient(180deg, #EF4444 0%, #DC2626 50%, #B91C1C 100%);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    0 4px 8px rgba(185, 28, 28, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Tactile Physical Rocker Toggle */
+.skeuo-toggle {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.skeuo-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.skeuo-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #D2D9CE;
+  border-radius: var(--radius-full);
+  box-shadow: 
+    inset 2px 2px 5px rgba(20, 36, 29, 0.25),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.skeuo-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E0E5DC 100%);
+  border-radius: 50%;
+  border: 1px solid #BAC4B5;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skeuo-toggle input:checked + .skeuo-toggle-slider {
+  background: linear-gradient(180deg, #2D4A3E 0%, #1E352B 100%);
+  box-shadow: inset 2px 2px 5px rgba(10, 20, 15, 0.5);
+}
+
+.skeuo-toggle input:checked + .skeuo-toggle-slider:before {
+  transform: translateX(24px);
+  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 100%);
+  border-color: #B56E1A;
+  box-shadow: 
+    0 2px 5px rgba(181, 110, 26, 0.4),
+    inset 0 1px 1px #FFE2B7;
+}
+
+/* Skeuomorphic Range Slider with Metallic Grip */
+.skeuo-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #D2D9CE;
+  box-shadow: 
+    inset 2px 2px 4px rgba(20, 36, 29, 0.2),
+    inset -2px -2px 4px #FFFFFF;
+  outline: none;
+}
+
+.skeuo-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #FFFFFF 0%, #DFE5DC 60%, #BAC4B5 100%);
+  border: 1px solid #8FA295;
+  box-shadow: 
+    0 3px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px #FFFFFF;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.skeuo-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.skeuo-slider::-webkit-slider-thumb:active {
+  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 100%);
+  border-color: #B56E1A;
+}
+
+/* =====================================================================
+   3. GLASSMORPHIC LAYERS, OVERLAYS & TOOLBARS
+   ===================================================================== */
+
+/* Glass Top Header */
+.glass-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(238, 242, 236, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 12px rgba(30, 53, 43, 0.05);
+}
+
+/* Floating Glass Bottom Navigation (Mobile First) */
+.glass-bottom-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 480px;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    0 12px 32px rgba(20, 36, 29, 0.15),
+    0 2px 6px rgba(255, 255, 255, 0.6);
+  padding: 8px 12px;
+}
+
+/* Glass Modal Overlay */
+.glass-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(20, 36, 29, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.glass-modal-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    0 24px 48px rgba(10, 24, 18, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  animation: modalPop 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* =====================================================================
+   4. CHIPS, BADGES, AND RATING CONTROLS
+   ===================================================================== */
+
+.badge-veg {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: #E8F5E9;
+  color: var(--veg-green);
+  border: 1px solid #A5D6A7;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-nonveg {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: #FFEBEE;
+  color: var(--nonveg-red);
+  border: 1px solid #FFCDD2;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.rating-star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 1.8rem;
+  color: #D2D9CE;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease;
+}
+
+.rating-star-btn:hover,
+.rating-star-btn.active {
+  color: var(--amber-500);
+  transform: scale(1.22);
+}
+
+.reason-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #E4EAE1;
+  color: var(--text-secondary);
+  border: 1px solid rgba(45, 74, 62, 0.1);
+  box-shadow: 
+    -2px -2px 5px #FFFFFF,
+    2px 2px 5px var(--card-shadow);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.reason-tag-chip.selected {
+  background: linear-gradient(180deg, #F5AB4D 0%, #E29538 100%);
+  color: #FFFFFF;
+  border-color: #B56E1A;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.5),
+    0 3px 6px rgba(181, 110, 26, 0.3);
+  transform: translateY(-1px);
+}
+
+/* =====================================================================
+   5. TOUR OVERLAY STYLES
+   ===================================================================== */
+.tour-spotlight-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(15, 28, 22, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.tour-card {
+  position: fixed;
+  z-index: 510;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--amber-500);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  padding: 20px;
+}

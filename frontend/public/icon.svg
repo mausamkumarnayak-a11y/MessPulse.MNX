@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D4A3E"/>
+      <stop offset="100%" stop-color="#1B3329"/>
+    </linearGradient>
+    <linearGradient id="amberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5AB4D"/>
+      <stop offset="100%" stop-color="#E29538"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#bg)"/>
+  <!-- Circular Plate Rim -->
+  <circle cx="256" cy="256" r="170" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="14"/>
+  <circle cx="256" cy="256" r="140" fill="#243E33" stroke="url(#amberGlow)" stroke-width="8"/>
+  <!-- Pulse Wave with Heartbeat / Steam line -->
+  <path d="M160 256 L205 256 L230 195 L260 320 L285 230 L305 270 L320 256 L352 256" 
+        fill="none" stroke="url(#amberGlow)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Leaf of sustainability -->
+  <path d="M256 120 C 310 120 330 155 330 185 C 300 195 260 170 256 120 Z" fill="#4ADE80" opacity="0.9"/>
+</svg>
