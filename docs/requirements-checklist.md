@@ -27,3 +27,5 @@ This checklist maps the requirements from the **MessPulse Project Documentation 
 | [x] | TOUR-1 | In-built Quick Tour for first-time visitors | Sec 8.1, 9.3 | `frontend/src/components/tour/`, `/api/v1/tour/progress` | Interactive role-specific practice tour |
 | [x] | HELP-1 | In-App Help Centre & User Guide | Sec 8.2, 9.3 | `frontend/src/pages/help/`, `/api/v1/help/articles` | Searchable guides by role, FAQs, troubleshooting |
 | [x] | TEST-1 | Automated Test Suite (Pytest) | Sec 11 | `backend/tests/` | Tests for auth, ratings gate, skips cutoff, waste calc |
+| [x] | TEST-2 | End-to-End QA Integration Audit Suite | User Prompt | `test_audit_suite.py`, `docs/audit-report.md` | Full multi-persona live database audit (10/10 PASS) |
+

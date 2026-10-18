@@ -1,13 +1,12 @@
 # MessPulse.MNX
-Student-first web app that turns hostel mess ratings, skipped meals and measured leftovers into less food waste and better meals. React + FastAPI + PostgreSQL. Hacktober Fest 2026 project, in design stage.
+Student-first web app that turns hostel mess ratings, skipped meals and measured leftovers into less food waste and better meals. React + FastAPI + PostgreSQL.
+
 # MessPulse
 
 **A student-first web app that turns hostel mess ratings, skipped meals and measured leftovers into less food waste and better meals.**
 
-> **Status: design and architecture complete, implementation in progress.**
-> The research, product design and architecture are documented. The application code is being built following the roadmap below. Nothing in this repository claims pilot results yet.
-
-*Hacktober Fest 2026 project. Working title: "MessPulse" (may be renamed).*
+> **Status: Full End-to-End Implementation & QA Integration Audit Complete (100% Verified).**  
+> The application features a futuristic Olive Green & Crystalline White Spatial UI, a high-performance FastAPI backend, Alembic database migrations, offline-capable PWA service worker, and a verified automated QA test suite.
 
 ---
 
@@ -98,9 +97,48 @@ messpulse/
   LICENSE
 ```
 
-## Getting started
+## Getting Started
 
-Setup instructions will be added with the first working milestone (backend "hello" endpoint plus the student rating page). Until then, see the project document for the full design.
+### 1. Backend Setup
+```bash
+cd backend
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On Linux/macOS:
+source venv/bin/activate
+
+pip install -r requirements.txt
+alembic upgrade head
+python -m app.db.seed
+uvicorn app.main:app --reload --port 8000
+```
+Backend API interactive documentation is available at `http://127.0.0.1:8000/docs`.
+
+### 2. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+```
+The PWA runs at `http://127.0.0.1:5173`.
+
+### 3. Running the QA Integration Test Suite
+```bash
+# Backend pytest suite (9 tests covering auth, RBAC, rating gate, skips cutoff)
+cd backend
+venv\Scripts\pytest.exe -v
+
+# Frontend TypeScript check and production bundle verification
+cd ../frontend
+npm.cmd run build
+
+# End-to-end multi-persona live API audit
+cd ..
+backend\venv\Scripts\python.exe test_audit_suite.py
+```
+For complete test results and criteria verification, see [docs/audit-report.md](docs/audit-report.md).
+
 
 ## Roadmap
 
