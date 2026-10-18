@@ -126,19 +126,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
             </button>
 
             {roleMenuOpen && (
-              <div style={{
-                position: 'absolute',
-                right: 0,
-                top: '115%',
-                width: 240,
-                background: 'rgba(255, 255, 255, 0.96)',
-                backdropFilter: 'blur(20px)',
-                borderRadius: 'var(--radius-md)',
-                boxShadow: '0 16px 36px rgba(19, 35, 25, 0.25)',
-                border: '1px solid rgba(255, 255, 255, 0.95)',
-                zIndex: 300,
-                padding: 6
-              }}>
+              <>
+                <div
+                  style={{ position: 'fixed', inset: 0, zIndex: 290 }}
+                  onClick={() => setRoleMenuOpen(false)}
+                />
+                <div style={{
+                  position: 'absolute',
+                  right: 0,
+                  top: '115%',
+                  width: 240,
+                  background: 'rgba(255, 255, 255, 0.98)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  borderRadius: 'var(--radius-md)',
+                  boxShadow: '0 16px 36px rgba(19, 35, 25, 0.25)',
+                  border: '1px solid rgba(255, 255, 255, 0.95)',
+                  zIndex: 300,
+                  padding: 6
+                }}>
                 <div style={{ padding: '6px 10px', fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase' }}>
                   Select Persona to Evaluate
                 </div>
@@ -174,7 +180,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
                   </button>
                 ))}
               </div>
-            )}
+            </>
+          )}
           </div>
 
           {/* User Profile / Logout or Sign In */}

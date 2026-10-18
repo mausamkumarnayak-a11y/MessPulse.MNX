@@ -37,7 +37,7 @@ export const App: React.FC = () => {
           <Navbar onStartTour={() => setTourOpen(true)} />
 
           {/* Main App Content Body */}
-          <main style={{ flex: 1, position: 'relative', zIndex: 1 }}>
+          <main style={{ flex: 1 }}>
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<LandingPage onStartTour={() => setTourOpen(true)} />} />

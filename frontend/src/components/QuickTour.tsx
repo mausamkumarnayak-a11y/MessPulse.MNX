@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
 import { 
@@ -119,6 +120,22 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
   const [practiceRating, setPracticeRating] = useState(5);
   const [practiceSkipped, setPracticeSkipped] = useState(false);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const stepData = steps[currentStep];
@@ -156,15 +173,12 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  return (
-    <div className="tour-spotlight-overlay" onClick={handleSkipTour}>
+  const tourNode = (
+    <div className="tour-spotlight-overlay" onClick={handleSkipTour} role="dialog" aria-modal="true">
       <div
         className="tour-card"
         onClick={(e) => e.stopPropagation()}
         style={{
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
           width: '90%',
           maxWidth: 440
         }}
@@ -306,4 +320,6 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
+
+  return createPortal(tourNode, document.body);
 };

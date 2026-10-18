@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { ActionItem, ActionStatus } from '../../types';
 import { api } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
@@ -239,70 +240,89 @@ export const ActionsTrackerPage: React.FC = () => {
       )}
 
       {/* Create / Edit Action Modal */}
-      {showModal && (
-        <div className="glass-modal-backdrop" onClick={() => setShowModal(false)}>
-          <div className="glass-modal-card" onClick={(e) => e.stopPropagation()} style={{ padding: 24 }}>
-            <h3 style={{ fontSize: '1.25rem', color: 'var(--olive-900)', marginBottom: 14 }}>
-              {editingActionId ? 'Update Action Item' : 'Publish "You Said, We Did" Action'}
-            </h3>
-            <form onSubmit={handleSaveAction}>
-              <div style={{ marginBottom: 12 }}>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
-                  Action Title
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Reduced salt in Dal Tadka recipe"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="neumo-input"
-                  required
-                />
+      {showModal && createPortal(
+        <div className="glass-modal-backdrop" onClick={() => setShowModal(false)} role="dialog" aria-modal="true">
+          <div className="glass-modal-card" onClick={(e) => e.stopPropagation()}>
+            <div className="glass-modal-header">
+              <h3 style={{ fontSize: '1.25rem', color: 'var(--olive-900)', margin: 0 }}>
+                {editingActionId ? 'Update Action Item' : 'Publish "You Said, We Did" Action'}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setShowModal(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-muted)',
+                  fontSize: '1.2rem',
+                  lineHeight: 1
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveAction} style={{ display: 'flex', flexDirection: 'column', flex: 1, overflow: 'hidden' }}>
+              <div className="glass-modal-body">
+                <div style={{ marginBottom: 12 }}>
+                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
+                    Action Title
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Reduced salt in Dal Tadka recipe"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    className="neumo-input"
+                    required
+                  />
+                </div>
+
+                <div style={{ marginBottom: 12 }}>
+                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
+                    What Feedback Prompted This?
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="e.g. 24 student comments on Tuesday highlighting saltiness..."
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    className="neumo-input"
+                    required
+                  />
+                </div>
+
+                <div style={{ marginBottom: 12 }}>
+                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
+                    Status
+                  </label>
+                  <select
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value as ActionStatus)}
+                    className="neumo-input"
+                  >
+                    <option value="open">Under Review</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                  </select>
+                </div>
+
+                <div style={{ marginBottom: 10 }}>
+                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
+                    Outcome / Resolution Result (Optional)
+                  </label>
+                  <textarea
+                    rows={2}
+                    placeholder="e.g. Adjusted spice blend; salt complaints dropped from 40% to 2%."
+                    value={outcome}
+                    onChange={(e) => setOutcome(e.target.value)}
+                    className="neumo-input"
+                  />
+                </div>
               </div>
 
-              <div style={{ marginBottom: 12 }}>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
-                  What Feedback Prompted This?
-                </label>
-                <textarea
-                  rows={3}
-                  placeholder="e.g. 24 student comments on Tuesday highlighting saltiness..."
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  className="neumo-input"
-                  required
-                />
-              </div>
-
-              <div style={{ marginBottom: 12 }}>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
-                  Status
-                </label>
-                <select
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value as ActionStatus)}
-                  className="neumo-input"
-                >
-                  <option value="open">Under Review</option>
-                  <option value="in_progress">In Progress</option>
-                  <option value="resolved">Resolved</option>
-                </select>
-              </div>
-
-              <div style={{ marginBottom: 20 }}>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
-                  Outcome / Resolution Result (Optional)
-                </label>
-                <textarea
-                  rows={2}
-                  placeholder="e.g. Adjusted spice blend; salt complaints dropped from 40% to 2%."
-                  value={outcome}
-                  onChange={(e) => setOutcome(e.target.value)}
-                  className="neumo-input"
-                />
-              </div>
-
-              <div style={{ display: 'flex', gap: 10 }}>
+              <div className="glass-modal-footer">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
@@ -322,7 +342,8 @@ export const ActionsTrackerPage: React.FC = () => {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

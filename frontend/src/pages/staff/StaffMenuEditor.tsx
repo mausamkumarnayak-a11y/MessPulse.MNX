@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { MealSlot, Dish, MealType } from '../../types';
 import { api } from '../../services/api';
 import { Utensils, Plus, Trash2, Save, Calendar, CheckCircle2, AlertCircle } from 'lucide-react';
@@ -259,70 +260,89 @@ export const StaffMenuEditor: React.FC = () => {
       </div>
 
       {/* New Dish Modal */}
-      {showNewDish && (
-        <div className="glass-modal-backdrop" onClick={() => setShowNewDish(false)}>
-          <div className="glass-modal-card" onClick={(e) => e.stopPropagation()} style={{ padding: 24 }}>
-            <h3 style={{ fontSize: '1.25rem', color: 'var(--olive-900)', marginBottom: 14 }}>
-              Add Dish to Kitchen Catalogue
-            </h3>
-            <form onSubmit={handleCreateNewDish}>
-              <div style={{ marginBottom: 14 }}>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
-                  Dish Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="e.g. Kashmiri Dum Aloo"
-                  value={newDishName}
-                  onChange={(e) => setNewDishName(e.target.value)}
-                  className="neumo-input"
-                  required
-                />
-              </div>
+      {showNewDish && createPortal(
+        <div className="glass-modal-backdrop" onClick={() => setShowNewDish(false)} role="dialog" aria-modal="true">
+          <div className="glass-modal-card" onClick={(e) => e.stopPropagation()}>
+            <div className="glass-modal-header">
+              <h3 style={{ fontSize: '1.25rem', color: 'var(--olive-900)', margin: 0 }}>
+                Add Dish to Kitchen Catalogue
+              </h3>
+              <button
+                type="button"
+                onClick={() => setShowNewDish(false)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-muted)',
+                  fontSize: '1.2rem',
+                  lineHeight: 1
+                }}
+              >
+                ✕
+              </button>
+            </div>
 
-              <div style={{ marginBottom: 14 }}>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
-                  Dietary Classification
-                </label>
-                <div style={{ display: 'flex', gap: 12 }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: '0.9rem' }}>
-                    <input
-                      type="radio"
-                      checked={newDishVeg}
-                      onChange={() => setNewDishVeg(true)}
-                    />
-                    <span>🌱 Vegetarian</span>
+            <form onSubmit={handleCreateNewDish} style={{ display: 'flex', flexDirection: 'column', flex: 1, overflow: 'hidden' }}>
+              <div className="glass-modal-body">
+                <div style={{ marginBottom: 14 }}>
+                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
+                    Dish Name
                   </label>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: '0.9rem' }}>
-                    <input
-                      type="radio"
-                      checked={!newDishVeg}
-                      onChange={() => setNewDishVeg(false)}
-                    />
-                    <span>🍗 Non-Vegetarian</span>
+                  <input
+                    type="text"
+                    placeholder="e.g. Kashmiri Dum Aloo"
+                    value={newDishName}
+                    onChange={(e) => setNewDishName(e.target.value)}
+                    className="neumo-input"
+                    required
+                  />
+                </div>
+
+                <div style={{ marginBottom: 14 }}>
+                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
+                    Dietary Classification
                   </label>
+                  <div style={{ display: 'flex', gap: 12 }}>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: '0.9rem' }}>
+                      <input
+                        type="radio"
+                        checked={newDishVeg}
+                        onChange={() => setNewDishVeg(true)}
+                      />
+                      <span>🌱 Vegetarian</span>
+                    </label>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer', fontSize: '0.9rem' }}>
+                      <input
+                        type="radio"
+                        checked={!newDishVeg}
+                        onChange={() => setNewDishVeg(false)}
+                      />
+                      <span>🍗 Non-Vegetarian</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div style={{ marginBottom: 10 }}>
+                  <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
+                    Category
+                  </label>
+                  <select
+                    value={newDishCategory}
+                    onChange={(e) => setNewDishCategory(e.target.value)}
+                    className="neumo-input"
+                  >
+                    <option value="Main">Main Course</option>
+                    <option value="Side">Side Dish</option>
+                    <option value="Bread">Bread / Roti</option>
+                    <option value="Breakfast">Breakfast Special</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Beverage">Beverage</option>
+                  </select>
                 </div>
               </div>
 
-              <div style={{ marginBottom: 20 }}>
-                <label style={{ fontSize: '0.82rem', fontWeight: 700, display: 'block', marginBottom: 4 }}>
-                  Category
-                </label>
-                <select
-                  value={newDishCategory}
-                  onChange={(e) => setNewDishCategory(e.target.value)}
-                  className="neumo-input"
-                >
-                  <option value="Main">Main Course</option>
-                  <option value="Side">Side Dish</option>
-                  <option value="Bread">Bread / Roti</option>
-                  <option value="Breakfast">Breakfast Special</option>
-                  <option value="Dessert">Dessert</option>
-                  <option value="Beverage">Beverage</option>
-                </select>
-              </div>
-
-              <div style={{ display: 'flex', gap: 10 }}>
+              <div className="glass-modal-footer">
                 <button
                   type="button"
                   onClick={() => setShowNewDish(false)}
@@ -341,7 +361,8 @@ export const StaffMenuEditor: React.FC = () => {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
