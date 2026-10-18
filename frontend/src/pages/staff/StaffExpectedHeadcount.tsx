@@ -43,7 +43,7 @@ export const StaffExpectedHeadcount: React.FC = () => {
   return (
     <div className="app-container">
       <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
           <Calculator size={14} />
           <span>Kitchen Planning</span>
         </div>
@@ -63,7 +63,7 @@ export const StaffExpectedHeadcount: React.FC = () => {
             <button
               key={s.id}
               onClick={() => setSelectedSlotId(s.id)}
-              className={`skeuo-btn ${selectedSlotId === s.id ? 'skeuo-btn-amber' : 'skeuo-btn-secondary'}`}
+              className={`skeuo-btn ${selectedSlotId === s.id ? 'spatial-btn-primary' : 'skeuo-btn-secondary'}`}
               style={{ padding: '8px 16px', fontSize: '0.88rem' }}
             >
               <span style={{ textTransform: 'capitalize' }}>{s.meal_type}</span>
@@ -102,8 +102,8 @@ export const StaffExpectedHeadcount: React.FC = () => {
               </div>
 
               <div className="neumo-inset" style={{ padding: 16, textAlign: 'center' }}>
-                <Percent size={20} color="var(--amber-600)" style={{ margin: '0 auto 6px auto' }} />
-                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--amber-600)', fontFamily: 'var(--font-display)' }}>
+                <Percent size={20} color="var(--olive-600)" style={{ margin: '0 auto 6px auto' }} />
+                <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--olive-700)', fontFamily: 'var(--font-display)' }}>
                   {Math.round(forecast.historical_showup_rate * 100)}%
                 </div>
                 <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>
@@ -114,17 +114,17 @@ export const StaffExpectedHeadcount: React.FC = () => {
 
             {/* Target Recommendation Box */}
             <div style={{
-              background: 'linear-gradient(135deg, #2D4A3E 0%, #1A2F26 100%)',
+              background: 'linear-gradient(135deg, #24412F 0%, #132319 100%)',
               borderRadius: 'var(--radius-lg)',
               padding: '20px 24px',
               color: '#FFFFFF',
               boxShadow: '0 8px 24px rgba(20, 36, 29, 0.25)',
               marginBottom: 16
             }}>
-              <div style={{ fontSize: '0.85rem', color: '#A5D6A7', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em' }}>
+              <div style={{ fontSize: '0.85rem', color: '#A7F3D0', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em' }}>
                 Recommended Cooking Quantity Target
               </div>
-              <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: '#F5AB4D', margin: '6px 0' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, fontFamily: 'var(--font-display)', color: '#34D399', margin: '6px 0', textShadow: '0 0 20px rgba(52, 211, 153, 0.4)' }}>
                 {forecast.expected_headcount} portions
               </div>
               <div style={{ fontSize: '0.92rem', color: '#E4ECE7' }}>

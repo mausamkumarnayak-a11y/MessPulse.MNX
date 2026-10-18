@@ -23,7 +23,7 @@ export const StudentImpact: React.FC = () => {
   return (
     <div className="app-container">
       <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
           <HeartHandshake size={14} />
           <span>Sustainability Record</span>
         </div>
@@ -66,7 +66,7 @@ export const StudentImpact: React.FC = () => {
 
             <div className="grid-2" style={{ gap: 14, marginBottom: 16 }}>
               <div className="neumo-inset" style={{ padding: 18, textAlign: 'center' }}>
-                <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--amber-600)', fontFamily: 'var(--font-display)' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--olive-600)', fontFamily: 'var(--font-display)' }}>
                   {impact?.meals_skipped_on_time || 0}
                 </div>
                 <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--olive-800)', marginTop: 2 }}>
@@ -109,7 +109,7 @@ export const StudentImpact: React.FC = () => {
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: 10, background: '#FFFFFF', borderRadius: 10 }}>
-                <Award size={20} color="var(--amber-500)" />
+                <Award size={20} color="var(--olive-600)" />
                 <div style={{ fontSize: '0.85rem', color: 'var(--text-primary)' }}>
                   <strong>Equivalent to {Math.round((impact?.estimated_food_saved_kg || 1) * 3)} fresh rotis saved</strong> from being thrown away.
                 </div>

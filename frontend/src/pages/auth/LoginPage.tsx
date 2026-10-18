@@ -51,14 +51,14 @@ export const LoginPage: React.FC = () => {
           width: 56,
           height: 56,
           borderRadius: 18,
-          background: 'linear-gradient(135deg, #2D4A3E 0%, #1B3329 100%)',
+          background: 'linear-gradient(135deg, #24412F 0%, #132319 100%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           margin: '0 auto 14px auto',
-          boxShadow: '0 8px 16px rgba(20, 36, 29, 0.25)'
+          boxShadow: '0 8px 20px rgba(19, 35, 25, 0.3)'
         }}>
-          <UtensilsCrossed size={28} color="#F5AB4D" />
+          <UtensilsCrossed size={28} color="#34D399" />
         </div>
         <h1 style={{ fontSize: '1.85rem', color: 'var(--olive-900)' }}>Sign in to MessPulse</h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: 4 }}>
@@ -125,7 +125,7 @@ export const LoginPage: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="skeuo-btn skeuo-btn-amber"
+            className="skeuo-btn spatial-btn-primary"
             style={{ padding: '12px', fontSize: '0.98rem', marginTop: 4 }}
           >
             <LogIn size={16} />

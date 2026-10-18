@@ -40,7 +40,7 @@ export const HelpPage: React.FC<HelpPageProps> = ({ onStartTour }) => {
     <div className="app-container">
       <div className="flex-between" style={{ marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
             <HelpCircle size={14} />
             <span>Knowledge Base & FAQs</span>
           </div>
@@ -49,7 +49,7 @@ export const HelpPage: React.FC<HelpPageProps> = ({ onStartTour }) => {
 
         <button
           onClick={onStartTour}
-          className="skeuo-btn skeuo-btn-amber"
+          className="skeuo-btn spatial-btn-primary"
           style={{ padding: '8px 16px', fontSize: '0.85rem' }}
         >
           <Compass size={15} />
@@ -131,10 +131,11 @@ export const HelpPage: React.FC<HelpPageProps> = ({ onStartTour }) => {
                     <span style={{
                       fontSize: '0.72rem',
                       fontWeight: 800,
-                      padding: '2px 8px',
-                      borderRadius: 12,
-                      background: 'var(--amber-100)',
-                      color: 'var(--amber-600)',
+                      padding: '3px 10px',
+                      borderRadius: 'var(--radius-pill)',
+                      background: 'var(--olive-100)',
+                      color: 'var(--olive-800)',
+                      border: '1px solid var(--olive-200)',
                       textTransform: 'uppercase'
                     }}>
                       {art.category}

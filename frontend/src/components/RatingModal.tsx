@@ -53,7 +53,7 @@ export const RatingModal: React.FC<RatingModalProps> = ({ slot, onClose, onSucce
           particleCount: 50,
           spread: 60,
           origin: { y: 0.7 },
-          colors: ['#E29538', '#2D4A3E', '#4ADE80']
+          colors: ['#4F8965', '#24412F', '#34D399', '#A7F3D0', '#FFFFFF']
         });
       } catch {
         // Fallback gracefully
@@ -77,7 +77,7 @@ export const RatingModal: React.FC<RatingModalProps> = ({ slot, onClose, onSucce
         <div className="flex-between" style={{ marginBottom: 16 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--amber-600)' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--olive-600)' }}>
                 {slot.meal_type} Rating
               </span>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>• 5-Second Feedback</span>
@@ -165,7 +165,7 @@ export const RatingModal: React.FC<RatingModalProps> = ({ slot, onClose, onSucce
                 onClick={() => setScore(star)}
                 className={`rating-star-btn ${star <= (hoverScore || score) ? 'active' : ''}`}
                 style={{
-                  color: star <= (hoverScore || score) ? 'var(--amber-500)' : '#BAC4B5'
+                  color: star <= (hoverScore || score) ? 'var(--olive-600)' : '#BAC4B5'
                 }}
               >
                 ★
@@ -255,7 +255,7 @@ export const RatingModal: React.FC<RatingModalProps> = ({ slot, onClose, onSucce
             type="button"
             onClick={handleSubmit}
             disabled={loading}
-            className="skeuo-btn skeuo-btn-amber"
+            className="skeuo-btn spatial-btn-primary"
             style={{ flex: 2 }}
           >
             <Sparkles size={16} />

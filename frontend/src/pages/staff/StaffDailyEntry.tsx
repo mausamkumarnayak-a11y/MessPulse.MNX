@@ -100,7 +100,7 @@ export const StaffDailyEntry: React.FC = () => {
   return (
     <div className="app-container">
       <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
           <ClipboardEdit size={14} />
           <span>Mess Kitchen Desk</span>
         </div>
@@ -158,7 +158,7 @@ export const StaffDailyEntry: React.FC = () => {
               key={s.id}
               type="button"
               onClick={() => setSelectedSlotId(s.id)}
-              className={`skeuo-btn ${selectedSlotId === s.id ? 'skeuo-btn-amber' : 'skeuo-btn-secondary'}`}
+              className={`skeuo-btn ${selectedSlotId === s.id ? 'spatial-btn-primary' : 'skeuo-btn-secondary'}`}
               style={{ padding: '8px 16px', fontSize: '0.88rem' }}
             >
               <span style={{ textTransform: 'capitalize' }}>{s.meal_type}</span>
@@ -202,7 +202,7 @@ export const StaffDailyEntry: React.FC = () => {
                   3. Weighed Leftover Food (Kilograms)
                 </h3>
               </div>
-              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--amber-600)' }}>
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--olive-700)' }}>
                 Total: {totalLeftoverEntered.toFixed(2)} kg
               </span>
             </div>
@@ -282,7 +282,7 @@ export const StaffDailyEntry: React.FC = () => {
           <button
             type="submit"
             disabled={saving || activeSlot.dishes.length === 0}
-            className="skeuo-btn skeuo-btn-amber"
+            className="skeuo-btn spatial-btn-primary"
             style={{ padding: '14px', fontSize: '1rem', width: '100%' }}
           >
             <Save size={18} />

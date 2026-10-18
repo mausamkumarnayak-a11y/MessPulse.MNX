@@ -34,12 +34,13 @@ export const PublicWastePage: React.FC = () => {
           display: 'inline-flex',
           alignItems: 'center',
           gap: 6,
-          background: 'var(--amber-100)',
-          color: 'var(--amber-600)',
+          background: 'var(--olive-100)',
+          color: 'var(--olive-800)',
+          border: '1px solid var(--olive-200)',
           fontWeight: 700,
           fontSize: '0.8rem',
           padding: '4px 12px',
-          borderRadius: 'var(--radius-full)',
+          borderRadius: 'var(--radius-pill)',
           textTransform: 'uppercase',
           marginBottom: 10
         }}>
@@ -94,7 +95,7 @@ export const PublicWastePage: React.FC = () => {
               <div style={{ fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)' }}>
                 Meals Skipped on Time
               </div>
-              <div style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--amber-500)', fontFamily: 'var(--font-display)', margin: '4px 0' }}>
+              <div style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--olive-600)', fontFamily: 'var(--font-display)', margin: '4px 0' }}>
                 {data.meals_skipped_on_time}
               </div>
               <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
@@ -155,7 +156,7 @@ export const PublicWastePage: React.FC = () => {
                   Recent Kitchen Changes ("You Said, We Did")
                 </h3>
               </div>
-              <Link to="/actions" style={{ fontSize: '0.85rem', color: 'var(--amber-600)', fontWeight: 700, textDecoration: 'none' }}>
+              <Link to="/actions" style={{ fontSize: '0.85rem', color: 'var(--olive-600)', fontWeight: 700, textDecoration: 'none' }}>
                 View All →
               </Link>
             </div>
@@ -184,14 +185,14 @@ export const PublicWastePage: React.FC = () => {
 
           {/* Call to action for students */}
           <div style={{
-            background: 'linear-gradient(135deg, #2D4A3E 0%, #1A2F26 100%)',
+            background: 'linear-gradient(135deg, #24412F 0%, #132319 100%)',
             borderRadius: 'var(--radius-lg)',
             padding: '24px',
             color: '#FFFFFF',
             textAlign: 'center',
             boxShadow: '0 8px 24px rgba(20, 36, 29, 0.25)'
           }}>
-            <h3 style={{ fontSize: '1.4rem', color: '#F5AB4D', marginBottom: 8 }}>
+            <h3 style={{ fontSize: '1.4rem', color: '#34D399', marginBottom: 8, textShadow: '0 0 15px rgba(52, 211, 153, 0.35)' }}>
               Eat at Ashoka Mess Today?
             </h3>
             <p style={{ fontSize: '0.92rem', color: '#E4ECE7', maxWidth: 480, margin: '0 auto 16px auto' }}>
@@ -199,7 +200,7 @@ export const PublicWastePage: React.FC = () => {
             </p>
             <Link
               to="/student"
-              className="skeuo-btn skeuo-btn-amber"
+              className="skeuo-btn spatial-btn-primary"
               style={{ display: 'inline-flex', padding: '12px 28px', fontSize: '1rem', textDecoration: 'none' }}
             >
               <Sparkles size={18} />

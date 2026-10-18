@@ -43,7 +43,7 @@ export const StudentSkip: React.FC = () => {
   return (
     <div className="app-container">
       <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
           <CalendarX2 size={14} />
           <span>Meal RSVP</span>
         </div>
@@ -74,7 +74,7 @@ export const StudentSkip: React.FC = () => {
 
       {/* Explanatory callout */}
       <div className="neumo-card" style={{ padding: 16, marginBottom: 20, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-        <Info size={20} color="var(--amber-600)" style={{ flexShrink: 0, marginTop: 2 }} />
+        <Info size={20} color="var(--olive-600)" style={{ flexShrink: 0, marginTop: 2 }} />
         <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
           <strong>How the cut-off works:</strong> To prevent last-minute shortages, meal skips lock <strong>60 minutes</strong> before meal service begins. You may undo a skip anytime before the cut-off.
         </div>
@@ -110,7 +110,7 @@ export const StudentSkip: React.FC = () => {
                 </div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
                   {slot.can_skip ? (
-                    <span style={{ color: 'var(--amber-600)', fontWeight: 700 }}>
+                    <span style={{ color: 'var(--olive-700)', fontWeight: 700 }}>
                       Cut-off time: {slot.cutoff_time_str}
                     </span>
                   ) : (
@@ -135,7 +135,7 @@ export const StudentSkip: React.FC = () => {
                   <button
                     onClick={() => handleToggle(slot)}
                     disabled={!slot.can_skip}
-                    className="skeuo-btn skeuo-btn-amber"
+                    className="skeuo-btn spatial-btn-primary"
                     style={{
                       padding: '8px 16px',
                       fontSize: '0.85rem',

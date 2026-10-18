@@ -173,12 +173,13 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
         <div style={{ marginBottom: 14 }}>
           <div className="flex-between" style={{ marginBottom: 8 }}>
             <span style={{
-              background: 'var(--amber-100)',
-              color: 'var(--amber-600)',
+              background: 'var(--olive-100)',
+              color: 'var(--olive-800)',
               fontSize: '0.75rem',
               fontWeight: 800,
-              padding: '3px 8px',
-              borderRadius: 'var(--radius-full)',
+              padding: '4px 10px',
+              borderRadius: 'var(--radius-pill)',
+              border: '1px solid var(--olive-200)',
               textTransform: 'uppercase'
             }}>
               Step {currentStep + 1} of {steps.length} • {stepData.role} Tour
@@ -200,7 +201,8 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
                 style={{
                   flex: 1,
                   borderRadius: 2,
-                  background: i <= currentStep ? 'var(--amber-500)' : 'rgba(45, 74, 62, 0.15)',
+                  background: i <= currentStep ? 'var(--olive-600)' : 'rgba(46, 83, 60, 0.15)',
+                  boxShadow: i <= currentStep ? '0 0 6px rgba(79, 137, 101, 0.4)' : 'none',
                   transition: 'background 0.2s ease'
                 }}
               />
@@ -239,7 +241,7 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
                   className="rating-star-btn"
                   style={{
                     fontSize: '1.6rem',
-                    color: s <= practiceRating ? 'var(--amber-500)' : '#BAC4B5'
+                    color: s <= practiceRating ? 'var(--olive-600)' : '#BAC4B5'
                   }}
                 >
                   ★
@@ -267,7 +269,7 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
             <button
               type="button"
               onClick={() => setPracticeSkipped(!practiceSkipped)}
-              className={`skeuo-btn ${practiceSkipped ? 'skeuo-btn-secondary' : 'skeuo-btn-amber'}`}
+              className={`skeuo-btn ${practiceSkipped ? 'skeuo-btn-secondary' : 'spatial-btn-primary'}`}
               style={{ padding: '8px 16px', fontSize: '0.85rem' }}
             >
               {practiceSkipped ? 'Undo Skip (Practice)' : 'Skip Tomorrow Dinner (Practice)'}
@@ -294,7 +296,7 @@ export const QuickTour: React.FC<QuickTourProps> = ({ isOpen, onClose }) => {
           <button
             type="button"
             onClick={handleNext}
-            className="skeuo-btn skeuo-btn-amber"
+            className="skeuo-btn spatial-btn-primary"
             style={{ padding: '8px 18px', fontSize: '0.85rem' }}
           >
             <span>{isLast ? 'Complete Tour' : 'Next'}</span>

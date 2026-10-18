@@ -107,7 +107,7 @@ export const StaffMenuEditor: React.FC = () => {
     <div className="app-container">
       <div className="flex-between" style={{ marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
             <Utensils size={14} />
             <span>Kitchen Management</span>
           </div>
@@ -126,7 +126,7 @@ export const StaffMenuEditor: React.FC = () => {
           <button
             onClick={handleSaveMenu}
             disabled={saving}
-            className="skeuo-btn skeuo-btn-amber"
+            className="skeuo-btn spatial-btn-primary"
             style={{ padding: '8px 18px', fontSize: '0.85rem' }}
           >
             <Save size={15} />
@@ -333,7 +333,7 @@ export const StaffMenuEditor: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="skeuo-btn skeuo-btn-amber"
+                  className="skeuo-btn spatial-btn-primary"
                   style={{ flex: 1 }}
                 >
                   Add Recipe

@@ -94,7 +94,7 @@ export const ActionsTrackerPage: React.FC = () => {
     <div className="app-container">
       <div className="flex-between" style={{ marginBottom: 20, flexWrap: 'wrap', gap: 12 }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
             <HeartHandshake size={14} />
             <span>Closed Feedback Loop</span>
           </div>
@@ -107,7 +107,7 @@ export const ActionsTrackerPage: React.FC = () => {
         {isManager && (
           <button
             onClick={handleOpenCreate}
-            className="skeuo-btn skeuo-btn-amber"
+            className="skeuo-btn spatial-btn-primary"
             style={{ padding: '8px 18px', fontSize: '0.85rem' }}
           >
             <Plus size={16} />
@@ -314,7 +314,7 @@ export const ActionsTrackerPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="skeuo-btn skeuo-btn-amber"
+                  className="skeuo-btn spatial-btn-primary"
                   style={{ flex: 1 }}
                 >
                   {saving ? 'Saving...' : 'Save & Publish'}

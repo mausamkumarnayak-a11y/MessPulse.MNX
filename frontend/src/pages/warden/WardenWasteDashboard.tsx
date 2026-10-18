@@ -30,7 +30,7 @@ export const WardenWasteDashboard: React.FC = () => {
   return (
     <div className="app-container">
       <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
           <Gauge size={14} />
           <span>Kitchen Analytics</span>
         </div>
@@ -53,7 +53,7 @@ export const WardenWasteDashboard: React.FC = () => {
           {/* Top KPI Cards */}
           <div className="grid-3">
             <div className="neumo-card" style={{ padding: 20, textAlign: 'center' }}>
-              <Scale size={22} color="var(--amber-600)" style={{ margin: '0 auto 8px auto' }} />
+              <Scale size={22} color="var(--olive-600)" style={{ margin: '0 auto 8px auto' }} />
               <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--olive-900)', fontFamily: 'var(--font-display)' }}>
                 {insights.total_waste_kg} kg
               </div>
@@ -119,9 +119,9 @@ export const WardenWasteDashboard: React.FC = () => {
                         width: '50%',
                         maxWidth: 42,
                         height: `${heightPct}%`,
-                        background: 'linear-gradient(180deg, #F5AB4D 0%, #E29538 100%)',
+                        background: 'linear-gradient(180deg, #68A780 0%, #3D6C4F 100%)',
                         borderRadius: '6px 6px 0 0',
-                        boxShadow: '0 2px 5px rgba(226, 149, 56, 0.3)',
+                        boxShadow: '0 4px 12px rgba(61, 108, 79, 0.35)',
                         transition: 'height 0.3s ease'
                       }}
                       title={`${day.date}: ${day.waste_kg} kg waste, ${day.headcount} diners`}
@@ -148,7 +148,7 @@ export const WardenWasteDashboard: React.FC = () => {
               </div>
               <button
                 onClick={() => navigate('/actions')}
-                className="skeuo-btn skeuo-btn-amber"
+                className="skeuo-btn spatial-btn-primary"
                 style={{ padding: '6px 12px', fontSize: '0.8rem' }}
               >
                 Log Corrective Action

@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
             justifyContent: 'center',
             boxShadow: '0 3px 6px rgba(20, 36, 29, 0.2)'
           }}>
-            <UtensilsCrossed size={20} color="#F5AB4D" />
+            <UtensilsCrossed size={20} color="#FFFFFF" />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -62,14 +62,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
                 letterSpacing: '-0.02em'
               }}>MessPulse</span>
               <span style={{
-                background: '#E29538',
+                background: 'linear-gradient(180deg, #4F8965 0%, #2E533C 100%)',
                 color: '#FFFFFF',
                 fontSize: '0.65rem',
                 fontWeight: 700,
-                padding: '2px 6px',
-                borderRadius: 4,
+                padding: '2px 8px',
+                borderRadius: 'var(--radius-pill)',
                 textTransform: 'uppercase',
-                letterSpacing: '0.05em'
+                letterSpacing: '0.06em',
+                boxShadow: '0 2px 6px rgba(46, 83, 60, 0.25)',
+                border: '1px solid rgba(255, 255, 255, 0.4)'
               }}>Pilot</span>
             </div>
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500 }}>
@@ -85,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
             onClick={onStartTour}
             id="nav-tour-btn"
             className="skeuo-btn skeuo-btn-secondary"
-            style={{ padding: '7px 12px', fontSize: '0.82rem', borderRadius: 10 }}
+            style={{ padding: '7px 14px', fontSize: '0.82rem' }}
             title="Start Interactive Tour"
           >
             <Compass size={15} color="var(--olive-700)" />
@@ -97,27 +99,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
             to="/help"
             id="nav-help-btn"
             className="skeuo-btn skeuo-btn-secondary"
-            style={{ padding: '7px 12px', fontSize: '0.82rem', borderRadius: 10, textDecoration: 'none' }}
+            style={{ padding: '7px 14px', fontSize: '0.82rem', textDecoration: 'none' }}
             title="Help Centre & Guide"
           >
             <HelpCircle size={15} color="var(--olive-700)" />
             <span style={{ display: 'inline' }}>Help</span>
           </Link>
 
-          {/* Role Switcher Pill (Great for Hackathon Evaluation & Review) */}
+          {/* Role Switcher Pill (Great for Review & Evaluation) */}
           <div style={{ position: 'relative' }}>
             <button
               onClick={() => setRoleMenuOpen(!roleMenuOpen)}
               id="nav-role-switcher"
               className="skeuo-btn"
               style={{
-                padding: '7px 14px',
+                padding: '7px 16px',
                 fontSize: '0.82rem',
-                borderRadius: 10,
-                background: user 
-                  ? 'linear-gradient(180deg, #2D4A3E 0%, #1E352B 100%)' 
-                  : 'linear-gradient(180deg, #F5AB4D 0%, #E29538 100%)',
-                borderColor: user ? '#14241D' : '#B56E1A'
+                borderRadius: 'var(--radius-pill)',
+                background: 'linear-gradient(180deg, #3D6C4F 0%, #24412F 100%)',
+                borderColor: '#132319'
               }}
             >
               <UserCheck size={14} color="#FFF" />
@@ -131,10 +131,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
                 right: 0,
                 top: '115%',
                 width: 240,
-                background: '#FFFFFF',
+                background: 'rgba(255, 255, 255, 0.96)',
+                backdropFilter: 'blur(20px)',
                 borderRadius: 'var(--radius-md)',
-                boxShadow: '0 12px 28px rgba(0,0,0,0.2)',
-                border: '1px solid rgba(45, 74, 62, 0.15)',
+                boxShadow: '0 16px 36px rgba(19, 35, 25, 0.25)',
+                border: '1px solid rgba(255, 255, 255, 0.95)',
                 zIndex: 300,
                 padding: 6
               }}>
@@ -149,9 +150,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
                       width: '100%',
                       textAlign: 'left',
                       padding: '8px 12px',
-                      borderRadius: 8,
+                      borderRadius: 10,
                       border: 'none',
-                      background: user?.role === r ? 'var(--canvas-bg)' : 'transparent',
+                      background: user?.role === r ? 'var(--olive-100)' : 'transparent',
                       cursor: 'pointer',
                       display: 'flex',
                       flexDirection: 'column',
@@ -181,7 +182,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
             <button
               onClick={() => { logout(); navigate('/'); }}
               className="skeuo-btn skeuo-btn-secondary"
-              style={{ padding: '7px 10px', borderRadius: 10 }}
+              style={{ padding: '7px 12px' }}
               title="Sign Out"
             >
               <LogOut size={15} color="var(--danger)" />
@@ -189,8 +190,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onStartTour }) => {
           ) : (
             <Link
               to="/login"
-              className="skeuo-btn skeuo-btn-amber"
-              style={{ padding: '7px 14px', fontSize: '0.82rem', borderRadius: 10, textDecoration: 'none' }}
+              className="skeuo-btn"
+              style={{ padding: '7px 16px', fontSize: '0.82rem', textDecoration: 'none' }}
             >
               <LogIn size={14} />
               <span>Sign In</span>

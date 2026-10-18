@@ -28,7 +28,7 @@ export const WardenRatingsDashboard: React.FC = () => {
   return (
     <div className="app-container">
       <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
           <Star size={14} />
           <span>Student Feedback</span>
         </div>
@@ -71,7 +71,7 @@ export const WardenRatingsDashboard: React.FC = () => {
             </div>
 
             <div className="neumo-card" style={{ padding: 20, textAlign: 'center' }}>
-              <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--amber-500)', fontFamily: 'var(--font-display)' }}>
+              <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--olive-600)', fontFamily: 'var(--font-display)' }}>
                 {insights.overall_average_score ? `★ ${insights.overall_average_score}` : 'Withheld'}
               </div>
               <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--olive-800)' }}>
@@ -150,11 +150,11 @@ export const WardenRatingsDashboard: React.FC = () => {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 6,
-                        background: '#FEF3C7',
-                        color: '#92400E',
-                        border: '1px solid #FDE68A',
+                        background: 'var(--olive-100)',
+                        color: 'var(--olive-800)',
+                        border: '1px solid var(--olive-200)',
                         padding: '6px 12px',
-                        borderRadius: 'var(--radius-sm)',
+                        borderRadius: 'var(--radius-pill)',
                         fontWeight: 700,
                         fontSize: '0.8rem'
                       }}>

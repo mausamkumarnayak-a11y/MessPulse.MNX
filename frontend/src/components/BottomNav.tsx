@@ -73,13 +73,19 @@ export const BottomNav: React.FC = () => {
                 alignItems: 'center',
                 gap: 3,
                 textDecoration: 'none',
-                padding: '6px 10px',
-                borderRadius: 14,
-                color: isActive ? 'var(--olive-800)' : 'var(--text-muted)',
-                background: isActive ? 'rgba(45, 74, 62, 0.12)' : 'transparent',
+                padding: '6px 12px',
+                borderRadius: 'var(--radius-pill)',
+                color: isActive ? '#FFFFFF' : 'var(--text-secondary)',
+                background: isActive 
+                  ? 'linear-gradient(180deg, #426E54 0%, #24412F 100%)' 
+                  : 'transparent',
+                boxShadow: isActive 
+                  ? '0 6px 16px rgba(19, 35, 25, 0.3), inset 0 1px 1.5px rgba(255,255,255,0.45)' 
+                  : 'none',
                 fontWeight: isActive ? 700 : 500,
                 fontSize: '0.72rem',
-                transition: 'all 0.15s ease'
+                transform: isActive ? 'translateY(-2px)' : 'none',
+                transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
               })}
             >
               <Icon size={18} strokeWidth={2.2} />

@@ -37,7 +37,7 @@ export const WardenOverview: React.FC = () => {
   return (
     <div className="app-container">
       <div style={{ marginBottom: 20 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
           <Shield size={14} />
           <span>Administration Portal</span>
         </div>
@@ -71,7 +71,7 @@ export const WardenOverview: React.FC = () => {
               <div style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)' }}>
                 Overall Mess Rating
               </div>
-              <div style={{ fontSize: '1.85rem', fontWeight: 800, color: 'var(--amber-500)', fontFamily: 'var(--font-display)', margin: '4px 0' }}>
+              <div style={{ fontSize: '1.85rem', fontWeight: 800, color: 'var(--olive-600)', fontFamily: 'var(--font-display)', margin: '4px 0' }}>
                 {ratings?.overall_average_score ? `★ ${ratings.overall_average_score}` : 'Withheld'}
               </div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
@@ -114,13 +114,13 @@ export const WardenOverview: React.FC = () => {
               <Link to="/warden/ratings" style={{ textDecoration: 'none' }}>
                 <div className="neumo-inset" style={{ padding: 16, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <Star size={24} color="var(--amber-500)" />
+                    <Star size={24} color="var(--olive-600)" />
                     <div>
                       <strong style={{ fontSize: '0.98rem', color: 'var(--olive-900)' }}>Ratings & Privacy Gate</strong>
                       <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Enforce 5-rating sample threshold</div>
                     </div>
                   </div>
-                  <ArrowRight size={18} color="var(--amber-500)" />
+                  <ArrowRight size={18} color="var(--olive-600)" />
                 </div>
               </Link>
 

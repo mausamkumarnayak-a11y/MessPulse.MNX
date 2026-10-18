@@ -59,7 +59,7 @@ export const StudentToday: React.FC = () => {
       {/* Page Header */}
       <div className="flex-between" style={{ marginBottom: 20 }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--amber-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--olive-600)', fontWeight: 700, fontSize: '0.82rem', textTransform: 'uppercase' }}>
             <Calendar size={14} />
             <span>Today's Services</span>
           </div>
@@ -116,7 +116,7 @@ export const StudentToday: React.FC = () => {
           <AlertCircle size={36} color="var(--danger)" style={{ margin: '0 auto 12px auto' }} />
           <h3 style={{ color: 'var(--danger)', marginBottom: 6 }}>Could not load menu</h3>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginBottom: 16 }}>{error}</p>
-          <button onClick={loadSlots} className="skeuo-btn skeuo-btn-amber">Try Again</button>
+          <button onClick={loadSlots} className="skeuo-btn spatial-btn-primary">Try Again</button>
         </div>
       )}
 
@@ -173,13 +173,13 @@ export const StudentToday: React.FC = () => {
                     </span>
                   ) : slot.can_skip ? (
                     <span style={{
-                      background: 'var(--amber-100)',
-                      color: 'var(--amber-600)',
-                      border: '1px solid var(--amber-300)',
+                      background: 'var(--olive-100)',
+                      color: 'var(--olive-800)',
+                      border: '1px solid var(--olive-200)',
                       fontSize: '0.75rem',
                       fontWeight: 700,
                       padding: '3px 10px',
-                      borderRadius: 'var(--radius-full)'
+                      borderRadius: 'var(--radius-pill)'
                     }}>
                       Skip Cutoff: {slot.cutoff_time_str}
                     </span>
@@ -252,13 +252,13 @@ export const StudentToday: React.FC = () => {
                     className="skeuo-btn skeuo-btn-secondary"
                     style={{ flex: 1, padding: '10px 14px', fontSize: '0.85rem' }}
                   >
-                    <Star size={15} color="var(--amber-500)" fill="var(--amber-500)" />
+                    <Star size={15} color="var(--olive-600)" fill="var(--olive-600)" />
                     <span>Rated {slot.user_rating}/5 (Update)</span>
                   </button>
                 ) : (
                   <button
                     onClick={() => setSelectedSlotForRating(slot)}
-                    className="skeuo-btn skeuo-btn-amber"
+                    className="skeuo-btn spatial-btn-primary"
                     style={{ flex: 1, padding: '10px 14px', fontSize: '0.85rem' }}
                   >
                     <Sparkles size={15} />
