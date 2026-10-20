@@ -16,6 +16,12 @@ from app.api import (
 async def lifespan(app: FastAPI):
     # Initialize schema tables if they do not exist
     Base.metadata.create_all(bind=engine)
+    # Auto-seed initial demo data if empty (e.g. for Render fresh deploy)
+    try:
+        from seed import seed_database
+        seed_database()
+    except Exception as e:
+        print(f"Database seed notice: {e}")
     yield
 
 app = FastAPI(
@@ -29,13 +35,25 @@ app = FastAPI(
 )
 
 # CORS configuration
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=settings.cors_origin_list,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+origins = settings.cors_origin_list
+allow_all = "*" in origins or settings.ENVIRONMENT == "production"
+
+if allow_all:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=False,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+else:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 # Root & Health Check
 @app.get("/", tags=["Health"])

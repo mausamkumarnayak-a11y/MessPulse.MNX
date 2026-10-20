@@ -121,7 +121,36 @@ cd frontend
 npm install
 npm run dev
 ```
-The PWA runs at `http://127.0.0.1:5173`.
+The application runs at `http://127.0.0.1:5173`.
+
+---
+
+## 🚀 Deploying to Render (Permanent Live Prototype)
+
+MessPulse is pre-configured for permanent deployment on [Render](https://render.com/).
+
+### Option A: 1-Click Blueprint (Frontend + Backend)
+1. In [Render Dashboard](https://dashboard.render.com/), click **New +** > **Blueprint**.
+2. Connect this repository (`mausamkumarnayak-a11y/MessPulse.MNX`).
+3. Render automatically detects [`render.yaml`](render.yaml) and provisions:
+   - **`messpulse-frontend`**: Static Site (Global CDN, 100% free, 24/7 uptime, zero spin-down sleep).
+   - **`messpulse-backend`**: FastAPI Web Service (Python 3.11 with SQLite and automatic demo data seeding).
+4. Click **Apply**. Render will build and deploy both services!
+
+### Option B: Deploy Static Site Frontend Only (Instant & 100% Free)
+1. On Render, click **New +** > **Static Site**.
+2. Connect your GitHub repository.
+3. Configure the fields:
+   - **Name**: `messpulse`
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm run build`
+   - **Publish Directory**: `dist`
+4. Click **Create Static Site**. Your live URL will be ready in under 60 seconds!
+
+### 📦 Classic Olive Version Archive
+The original olive green interface is preserved permanently in this repository:
+- Git Tag: `v1.0.0-classic`
+- Git Branch: `backup/classic-olive`
 
 ### 3. Running the QA Integration Test Suite
 ```bash

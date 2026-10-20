@@ -1,0 +1,41 @@
+services:
+  # -------------------------------------------------------------
+  # MessPulse Frontend (Static Site - Always Online 24/7, Fast CDN)
+  # -------------------------------------------------------------
+  - type: web
+    name: messpulse-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+
+  # -------------------------------------------------------------
+  # MessPulse Backend (FastAPI Web Service)
+  # -------------------------------------------------------------
+  - type: web
+    name: messpulse-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: DATABASE_URL
+        value: sqlite:///./messpulse.db
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.11.9
